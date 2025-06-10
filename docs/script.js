@@ -6,3 +6,6 @@ document.addEventListener('mousemove', (e) => {
   document.body.appendChild(sparkle);
   setTimeout(() => sparkle.remove(), 800);
 });
+
+// Placeholder for any future interactivity
+console.log("Portfolio site loaded successfully.");
