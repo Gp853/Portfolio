@@ -1,21 +1,39 @@
 function createStar() {
   const star = document.createElement("div");
-  star.classList.add("star");
+  star.className = "star";
   star.innerHTML = "✦";
 
-  const left = Math.random() * window.innerWidth;
-  const top = -30;
-  star.style.left = `${left}px`;
-  star.style.top = `${top}px`;
+  const style = star.style;
+  const anim = "fall-" + (1 + Math.floor(Math.random() * 3));
+  const left = Math.random() * 100 + "vw";
+  const delay = Math.random() * 3 + "s";
 
-  const animation = `fall-${Math.floor(Math.random() * 3) + 1}`;
-  star.style.animation = `${animation} 2s ease-in-out forwards`;
+  style.left = left;
+  style.top = "-20px";
+  style.animation = `${anim} 2.5s linear ${delay}`;
 
   document.body.appendChild(star);
 
   setTimeout(() => {
     star.remove();
-  }, 2000);
+  }, 3000);
 }
 
-setInterval(createStar, 400);
+setInterval(createStar, 500);
+
+function createGlowPoint(x, y) {
+  const glow = document.createElement("div");
+  glow.className = "glow-point";
+  glow.style.left = `${x}px`;
+  glow.style.top = `${y}px`;
+
+  document.body.appendChild(glow);
+
+  setTimeout(() => {
+    glow.remove();
+  }, 1000);
+}
+
+document.addEventListener("mousemove", (e) => {
+  createGlowPoint(e.clientX, e.clientY);
+});
