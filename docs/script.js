@@ -1,11 +1,21 @@
-document.addEventListener('mousemove', (e) => {
-  const sparkle = document.createElement('div');
-  sparkle.className = 'sparkle';
-  sparkle.style.left = `${e.clientX}px`;
-  sparkle.style.top = `${e.clientY}px`;
-  document.body.appendChild(sparkle);
-  setTimeout(() => sparkle.remove(), 800);
-});
+function createStar() {
+  const star = document.createElement("div");
+  star.classList.add("star");
+  star.innerHTML = "✦";
 
-// Placeholder for any future interactivity
-console.log("Portfolio site loaded successfully.");
+  const left = Math.random() * window.innerWidth;
+  const top = -30;
+  star.style.left = `${left}px`;
+  star.style.top = `${top}px`;
+
+  const animation = `fall-${Math.floor(Math.random() * 3) + 1}`;
+  star.style.animation = `${animation} 2s ease-in-out forwards`;
+
+  document.body.appendChild(star);
+
+  setTimeout(() => {
+    star.remove();
+  }, 2000);
+}
+
+setInterval(createStar, 400);
