@@ -20,6 +20,24 @@ const observer = new IntersectionObserver((entries) => {
 }, {
   threshold: 0.5 // Trigger when 50% visible
 });
+window.addEventListener('load', () => {
+  const avatar = document.getElementById('avatar-container');
+  if (avatar) {
+    // Wait for the popin animation to finish (1.2s), then start timer
+    setTimeout(() => {
+      // After 3 seconds visible, fade out avatar
+      setTimeout(() => {
+        avatar.style.opacity = '0';
+        avatar.style.transform = 'translateY(50%)';
+      }, 3000);
+
+      // Optionally remove from DOM or hide completely after fade-out duration (0.6s)
+      setTimeout(() => {
+        avatar.style.display = 'none';
+      }, 3600);
+    }, 1200);
+  }
+});
 
 // Apply to all fade-in elements
 document.querySelectorAll(".section, .projects-box, .internships-box, .skill").forEach(elem => {
