@@ -256,6 +256,50 @@ footer p i {
   color: var(--accent);
   font-size: 1.1rem;
 }
+/* ===================== */
+/* Floating Avatar Popup */
+/* ===================== */
+#avatar-container {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(50%);
+  animation: popin 1.2s ease-out forwards;
+  z-index: 9999;
+}
+
+#avatar {
+  width: 80px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #0f0;
+}
+
+.speech-bubble {
+  margin-left: 15px;
+  background-color: #0f0;
+  color: #000;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 0 15px #0f0;
+}
+
+@keyframes popin {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ======================== */
 /* Mobile Responsive Styles */
 /* ======================== */
