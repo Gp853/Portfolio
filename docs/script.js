@@ -1,39 +1,28 @@
-function createStar() {
-  const star = document.createElement("div");
-  star.className = "star";
-  star.innerHTML = "✦";
+// Scroll-triggered fade-in animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
 
-  const style = star.style;
-  const anim = "fall-" + (1 + Math.floor(Math.random() * 3));
-  const left = Math.random() * 100 + "vw";
-  const delay = Math.random() * 3 + "s";
+      // Animate progress circles once visible
+      const circle = entry.target.querySelector("circle.progress");
+      if (circle) {
+        const percentage = circle.getAttribute("data-percentage");
+        const radius = circle.r.baseVal.value;
+        const circumference = 2 * Math.PI * radius;
+        const offset = circumference - (percentage / 100) * circumference;
 
-  style.left = left;
-  style.top = "-20px";
-  style.animation = `${anim} 2.5s linear ${delay}`;
+        circle.style.strokeDasharray = `${circumference}`;
+        circle.style.strokeDashoffset = `${offset}`;
+      }
+    }
+  });
+}, {
+  threshold: 0.5 // Trigger when 50% visible
+});
 
-  document.body.appendChild(star);
-
-  setTimeout(() => {
-    star.remove();
-  }, 3000);
-}
-
-setInterval(createStar, 500);
-
-function createGlowPoint(x, y) {
-  const glow = document.createElement("div");
-  glow.className = "glow-point";
-  glow.style.left = `${x}px`;
-  glow.style.top = `${y}px`;
-
-  document.body.appendChild(glow);
-
-  setTimeout(() => {
-    glow.remove();
-  }, 1000);
-}
-
-document.addEventListener("mousemove", (e) => {
-  createGlowPoint(e.clientX, e.clientY);
+// Apply to all fade-in elements
+document.querySelectorAll(".section, .projects-box, .internships-box, .skill").forEach(elem => {
+  elem.classList.add("fade-in");
+  observer.observe(elem);
 });

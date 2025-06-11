@@ -1,132 +1,258 @@
 :root {
-  --glow-rgb: 0 255 153; /* updated for greenish glow */
+  --primary: #ffffff;
+  --secondary: #0a0a0a;
+  --accent: #90ee90;
+  --text-dark: #000000;
+  --text-light: #f5f5f5;
+  --box-bg: #1e1e1e;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
 body {
-  font-family: 'Poppins', sans-serif;
   margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  background: linear-gradient(145deg, #001f3f, #014d4e);
-  color: #fff;
-  overflow-x: hidden;
-  overflow-y: auto;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  color: var(--text-dark);
 }
 
-/* Gradient + Depth Headings */
 h1, h2, h3 {
-  font-weight: 700;
-  background: linear-gradient(90deg, #00ffe7, #40ff8c);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-}
-
-.container {
-  padding: 30px;
+  font-family: 'Bebas Neue', cursive;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   text-align: center;
-  position: relative;
-  z-index: 3;
 }
 
-.profile-pic {
+header {
+  background: var(--primary);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.main-nav a {
+  color: var(--secondary);
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: var(--accent);
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a {
+  color: var(--secondary);
+  font-size: 1.3rem;
+  text-decoration: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: var(--accent);
+}
+
+
+.hero {
+  background: var(--primary);
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.hero img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 20px;
-  border: 3px solid #fff;
+  margin-bottom: 1rem;
 }
 
-.intro {
-  font-size: 1.1em;
-  max-width: 600px;
-  margin: auto;
+.hero h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.hero p {
+  font-size: 1.4rem;
+  color: #555;
+}
+
+.content {
+  background: var(--secondary);
+  color: var(--text-light);
+  padding: 2rem;
 }
 
 .section {
-  margin-top: 40px;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
-.skills {
+.section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  background-color: #32cd32;
+  color: black;
+  padding: 0.4rem 1rem;
+  display: inline-block;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(50, 205, 50, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section h2:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(50, 205, 50, 0.7);
+}
+
+.socials {
   display: flex;
+  gap: 1rem;
   justify-content: center;
-  gap: 15px;
+  margin-top: 1.5rem;
+}
+
+.socials a {
+  color: var(--accent);
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.socials a:hover {
+  transform: scale(1.2);
+}
+
+/* Projects & Internships Section */
+.projects-internships-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
-.skills span {
-  background-color: rgba(255, 255, 255, 0.15);
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-weight: 600;
-  backdrop-filter: blur(4px);
+.projects-box,
+.internships-box {
+  background: #2e2e2e;
+  padding: 1.5rem;
+  border-radius: 10px;
+  flex: 1 1 48%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
 }
 
-.split-section {
+.projects-box:hover,
+.internships-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.projects-box h2,
+.internships-box h2 {
+  background-color: #32cd32;
+  color: black;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 1.8rem;
+  width: fit-content;
+  margin: 0 auto 1rem auto;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(50, 205, 50, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projects-box h2:hover,
+.internships-box h2:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(50, 205, 50, 0.6);
+}
+
+/* Skills Section with Circular Progress */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.skill {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  margin-top: 20px;
+  align-items: center;
+  color: var(--text-light);
 }
 
-@media (min-width: 768px) {
-  .split-section {
-    flex-direction: row;
-    justify-content: space-around;
-  }
+.progress-circle {
+  transform: rotate(-90deg);
 }
 
-.split-section div {
-  flex: 1;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.06);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  border-radius: 12px;
-  backdrop-filter: blur(6px);
+.progress-circle circle.bg {
+  fill: none;
+  stroke: #333;
+  stroke-width: 10;
 }
 
-.social-links a {
-  margin: 0 10px;
-  color: #ffffff;
-  font-weight: 600;
-  text-decoration: none;
+.progress-circle circle.progress {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 10;
+  stroke-dasharray: 251.2; /* 2 * π * r where r = 40 */
+  stroke-dashoffset: 251.2;
+  transition: stroke-dashoffset 1s ease;
 }
 
-.social-links a:hover {
-  text-decoration: underline;
+.progress-circle text {
+  transform: rotate(90deg);
+  transform-origin: center;
 }
 
-/* === GLOW STAR EFFECT === */
-.glow-point {
-  position: absolute;
-  box-shadow: 0rem 0rem 1.2rem 0.6rem rgb(var(--glow-rgb));
-  pointer-events: none;
-}
 
-.star {
-  position: absolute;
-  z-index: 1;
-  color: white;
+/* Footer Section */
+footer {
+  background-color: var(--box-bg);
+  color: var(--text-light);
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
   font-size: 1rem;
-  animation-fill-mode: forwards;
-  pointer-events: none;
+  border-top: 1px solid #444;
 }
 
-@keyframes fall-1 {
-  0% { transform: translate(0px, 0px) rotateX(45deg) rotateY(30deg) scale(0.25); opacity: 0; }
-  5% { transform: translate(10px, -10px) rotateX(45deg) rotateY(30deg) scale(1); opacity: 1; }
-  100% { transform: translate(25px, 200px) rotateX(180deg) rotateY(270deg) scale(1); opacity: 0; }
+footer h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-@keyframes fall-2 {
-  0% { transform: translate(0px, 0px) rotateX(-20deg) rotateY(10deg) scale(0.25); opacity: 0; }
-  10% { transform: translate(-10px, -5px) rotateX(-20deg) rotateY(10deg) scale(1); opacity: 1; }
-  100% { transform: translate(-10px, 160px) rotateX(-90deg) rotateY(45deg) scale(0.25); opacity: 0; }
+footer p {
+  margin: 0.3rem 0;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-@keyframes fall-3 {
-  0% { transform: translate(0px, 0px) rotateX(0deg) rotateY(45deg) scale(0.5); opacity: 0; }
-  15% { transform: translate(7px, 5px) rotateX(0deg) rotateY(45deg) scale(1); opacity: 1; }
-  100% { transform: translate(20px, 120px) rotateX(-180deg) rotateY(-90deg) scale(0.5); opacity: 0; }
+footer p i {
+  color: var(--accent);
+  font-size: 1.1rem;
 }
