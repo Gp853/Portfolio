@@ -39,7 +39,7 @@ window.addEventListener('load', () => {
   }
 });
 
-// Apply to all fade-in elements
+// fade-in elements
 document.querySelectorAll(".section, .projects-box, .internships-box, .skill").forEach(elem => {
   elem.classList.add("fade-in");
   observer.observe(elem);
