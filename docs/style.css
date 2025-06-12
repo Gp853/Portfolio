@@ -13,7 +13,7 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  font-size: 18px;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
   color: var(--text-dark);
 }
 
@@ -84,12 +84,12 @@ header {
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   margin: 0;
 }
 
 .hero p {
-  font-size: 1.4rem;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
   color: #555;
 }
 
@@ -105,7 +105,7 @@ header {
 }
 
 .section h2 {
-  font-size: 2.2rem;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
   margin-bottom: 1rem;
   background-color: #32cd32;
   color: black;
@@ -172,7 +172,7 @@ header {
   color: black;
   padding: 0.5rem;
   border-radius: 5px;
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 3.5vw, 1.8rem);
   width: fit-content;
   margin: 0 auto 1rem auto;
   text-align: center;
@@ -240,7 +240,7 @@ footer {
 }
 
 footer h3 {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
   margin-bottom: 1rem;
 }
 
@@ -302,10 +302,7 @@ footer p i {
 }
 
 
-/* Mobile Responsive Styles */
-
-
-@@media (max-width: 768px) {
+@media (max-width: 768px) {
   html {
     font-size: 90%;
   }
