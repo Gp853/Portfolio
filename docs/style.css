@@ -315,7 +315,7 @@ footer p i {
   }
 
   .main-nav {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
   }
 
@@ -431,6 +431,7 @@ footer p i {
     padding: 8px 12px;
     text-align: center;
   }
+  
 }
 
 .green-animation-bg {
@@ -459,6 +460,7 @@ background: linear-gradient(120deg, #004d00, #006400, #32cd32, #90ee90);
   100% {
     background-position: 0% 50%;
   }
+  
 }
 
 
