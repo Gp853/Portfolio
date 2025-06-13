@@ -20,7 +20,7 @@ const observer = new IntersectionObserver((entries) => {
 }, {
   threshold: 0.5 // Trigger when 50% visible
 });
-window.addEventListener('load', () => {
+/* window.addEventListener('load', () => {
   const avatar = document.getElementById('avatar-container');
   if (avatar) {
     // Wait for the popin animation to finish (1.2s), then start timer
@@ -37,7 +37,7 @@ window.addEventListener('load', () => {
       }, 3600);
     }, 1200);
   }
-});
+}); */
 
 // fade-in elements
 document.querySelectorAll(".section, .projects-box, .internships-box, .skill").forEach(elem => {
